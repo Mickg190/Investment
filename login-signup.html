@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Investment Platform - Login</title>
+<style>
+body {
+font-family: Arial, sans-serif;
+background-image: url('background.jpg');
+background-size: cover;
+background-position: center;
+}
+header {
+display: flex;
+justify-content: center;
+align-items: center;
+padding: 20px;
+}
+#logo {
+width: 50px;
+height: 50px;
+margin-right: 10px;
+}
+.glass-container {
+background-color: rgba(255, 255, 255, 0.2);
+border-radius: 10px;
+padding: 20px;
+width: 300px;
+margin: 0 auto;
+margin-top: 50px;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.login-signup-form {
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+.form-input {
+padding: 10px;
+margin-bottom: 20px;
+border: none;
+border-radius: 5px;
+width: 100%;
+font-size: 16px;
+}
+.form-button {
+padding: 10px;
+margin-bottom: 20px;
+border: none;
+border-radius: 5px;
+background-color: #4CAF50;
+color: #fff;
+cursor: pointer;
+font-size: 16px;
+}
+.form-button:hover {
+background-color: #3e8e41;
+}
+.error-message {
+color: red;
+margin-bottom: 10px;
+font-size: 14px;
+}
+.success-message {
+color: green;
+margin-bottom: 10px;
+font-size: 14px;
+}
+</style>
+</head>
+<body>
+<header>
+<img src="logo.png" alt="Logo" id="logo">
+<h1>Investment Platform</h1>
+</header>
+<div class="glass-container">
+<h2>Login</h2>
+<form class="login-signup-form">
+<input type="text" class="form-input" placeholder="Username" id="username" value="admin">
+<input type="password" class="form-input" placeholder="Password" id="password" value="password">
+<button class="form-button" id="login-btn">Login</button>
+<div class="error-message" id="error"></div>
+</form>
+</div>
+<script>
+const loginBtn = document.getElementById('login-btn');
+const error = document.getElementById('error');
+
+    loginBtn.addEventListener('click', async () => {
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+
+        if (username === 'admin' && password === 'password') {
+            const balance = 1000; // Replace with actual balance retrieval logic
+            window.location.href = `dashboard.html?username=${username}&balance=${balance}`;
+        } else {
+            error.innerText = 'Invalid username or password';
+        }
+    });
+</script>
+</body>
+</html>
